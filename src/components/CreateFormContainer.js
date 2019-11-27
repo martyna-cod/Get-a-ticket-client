@@ -8,7 +8,8 @@ import CreateForm from './CreateForm'
         name: "",
         description: "",
         picture: "",
-        date: ""
+        start_date: "",
+        end_date: ""
     }
 
     onChange = (event) => {
@@ -25,7 +26,8 @@ import CreateForm from './CreateForm'
             name: "",
             description: "",
             picture: "",
-            date: ""
+            start_date: "",
+            end_date: ""
         })
     }
 

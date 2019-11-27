@@ -15,11 +15,11 @@ export default function List(props) {
         </div>
             {props.events.map(event => (
                 <div key={event.id}>
-                    <Link to={`/event/${event.id}`}>{event.name}</Link>
+                    <Link to={`/event/${event.id}/ticket`}>{event.name}</Link>
                     <img alt={event.name} src={event.picture} />
                     <h4>{event.description}; {event.date} </h4>
                 </div>
-            ))}
+            ))} 
         </div>
     );
 }

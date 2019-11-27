@@ -6,6 +6,7 @@ import List from './List';
 class ListContainer extends React.Component {
     componentDidMount() {
         this.props.getEvents();
+        
     }
     
     render() {

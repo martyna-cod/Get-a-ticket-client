@@ -1,20 +1,26 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TicketsList from './TicketsList'
-import { getTickets } from '../actions'
+import { getTickets } from '../ticketActions'
 
  class TicketsListContainer extends React.Component {
+    
     componentDidMount() {
-        this.props.getTickets();
+        const id = this.props.match.params.eventId
+        console.log(id, "id")
+        console.log(this.props.match.params.eventId, "ticketlistcontainer")
+        this.props.getTickets(this.props.match.params.eventId)
+      
     }
     
-    rrender() {
+    render() {
         return <TicketsList tickets={this.props.tickets} 
-        user={this.props.user} />;
+        />;
     }
 }
 function mapStateToProps(state) {
-    return { tickets: state.tickets, user: state.user };
+    console.log(state, "state")
+    return { tickets: state.tickets, events: state.events};
 }
 
 const mapDispatchToProps = { getTickets };

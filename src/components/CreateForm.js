@@ -25,10 +25,17 @@ export default function CreateForm(props) {
                 onChange={props.onChange}
             ></input>
               <input
-                type="text"
-                name="date"
-                placeholder="date"
-                value={props.values.date}
+                type="date"
+                name="start_date"
+                placeholder="start_date"
+                value={props.values.start_date}
+                onChange={props.onChange}
+            ></input>
+                <input
+                type="date"
+                name="end_date"
+                placeholder="end_date"
+                value={props.values.end_date}
                 onChange={props.onChange}
             ></input>
             <button type="submit">Add Event</button>

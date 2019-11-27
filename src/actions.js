@@ -2,53 +2,8 @@ import request from "superagent";
 const baseUrl = "http://localhost:4000";
 export const ALL_EVENTS = "ALL_EVENTS"
 export const NEW_EVENT = "NEW_EVENT"
-export const NEW_TICKET = "NEW_TICKET"
-export const ALL_TICKETS = "ALL_TICKETS"
 
-function allTickets (payload) {
-  return {
-    type: ALL_TICKETS,
-    payload
-  }
-}
 
-export const getTickets = () => (dispatch, getState) => {
-  const state = getState()
-  const { tickets } = state
-
-  if (!tickets.length) {
-    request(`${baseUrl}/ticket`)
-      .then(res => {
-        const action = allTickets(res.body)
-
-        dispatch(action)
-      })
-      .catch(console.error)
-  }
-}
-
-function newTicket (payload) {
-  return {
-    type: NEW_TICKET,
-    payload
-  }
-}
-
-export const createTicket = data => (dispatch, getState) => {
-  const state = getState()
-  const { user } = state
-
-  request
-    .post(`${baseUrl}/ticket`)
-    .set('Authorization', `Bearer ${user}`)
-    .send(data)
-    .then(res => {
-      const action = newTicket(res.body)
-
-      dispatch(action)
-    })
-    .catch(console.error)
-}
 
 
 function newEvent (payload) {

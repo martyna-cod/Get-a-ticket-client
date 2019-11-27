@@ -3,6 +3,9 @@ body {
   background-image: url('https://images.unsplash.com/photo-1526791543726-88ffd5bcdc0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80');
 
 }
+.Event {
+  background-color: grey;
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
