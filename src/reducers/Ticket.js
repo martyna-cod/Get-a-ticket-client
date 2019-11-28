@@ -1,4 +1,4 @@
-import { ALL_TICKETS, NEW_TICKET } from '../ticketActions';
+import { ALL_TICKETS, NEW_TICKET, TICKET } from '../ticketActions';
 
 export default function(state = [], action = {}) {
     switch (action.type) {
@@ -6,7 +6,10 @@ export default function(state = [], action = {}) {
             console.log(action.payload, "payload")
             return action.payload;
         case NEW_TICKET:
-            return [action.payload, ...state];
+            console.log(action.payload, "NEW TICKET ACTION PAYLOAD")
+            return [action.payload, ...state]
+            case TICKET:
+                return action.payload
         default:
             return state;
     }

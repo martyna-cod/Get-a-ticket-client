@@ -4,8 +4,6 @@ export const ALL_EVENTS = "ALL_EVENTS"
 export const NEW_EVENT = "NEW_EVENT"
 
 
-
-
 function newEvent (payload) {
   return {
     type: NEW_EVENT,

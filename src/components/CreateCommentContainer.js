@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import CreateTicket from "./CreateTicket";
 import { connect } from "react-redux";
-import { createTicket } from '../ticketActions'
+import { createComment } from '../commentAction'
+import CreateComment  from '../components/CreateComment'
 
-class CreateTicketContainer extends Component {
-  state = { description: "", price: "" };
+class CreateCommentContainer extends Component {
+  state = { text: "", author: "" };
 
 
   onChange = event => {
@@ -13,24 +13,22 @@ class CreateTicketContainer extends Component {
   };
 
   onSubmit = event => {
-    console.log(this.props.match.params.eventId, "props.matcg")
-    console.log("onSubmit newticket")
     event.preventDefault();
-    this.props.createTicket(
+    this.props.createComment(
       this.state,
-      this.props.match.params.eventId
+      this.props.match.params.ticketId
      
     );
     this.setState({
-      description: "",
-      price: ""
+      text: "",
+      author: ""
     })
   };
 
   render() {
     return (
       <div>
-        <CreateTicket
+        <CreateComment
           onChange={this.onChange}
           onSubmit={this.onSubmit}
           values={this.state}
@@ -40,4 +38,4 @@ class CreateTicketContainer extends Component {
   }
 }
 
-export default connect(null, { createTicket })(CreateTicketContainer);
+export default connect(null, { createComment })(CreateCommentContainer);
