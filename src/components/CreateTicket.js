@@ -1,7 +1,14 @@
 import React from "react";
+//import { Link } from "react"
+import {
+  BrowserRouter as Router,
+  Link,
+} from "react-router-dom";
 
 export default function CreateForm(props) {
   return (
+    <div>
+      <div>
         <form onSubmit={props.onSubmit}>
             <label>Description:</label>
               <input
@@ -21,7 +28,12 @@ export default function CreateForm(props) {
             ></input>
               <button type="Submit">Add ticket</button>
             </form>
-         
+            </div>
+            <br/>
+          <Link to="/"> GO BACK TO EVENTS </Link> <br/>
+
+
+          </div>
           
           
   )}

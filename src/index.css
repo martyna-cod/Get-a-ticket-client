@@ -1,19 +1,30 @@
 body {
   text-align: center;
-  background-image: url('https://images.unsplash.com/photo-1526791543726-88ffd5bcdc0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80');
-
+  background: repeat url("https://images4.alphacoders.com/594/thumb-1920-594600.jpg");
+  font-family: 'Oswald', sans-serif;
+  color: white;
 }
 .event {
- border: solid 2px black;
+ border: solid 2px white;
   border-radius: 3px;
   padding: 35px;
-  margin-top: 10px;
-  width: 800px;
+  margin-top: 65px;
+  width: 500px;
   text-align: center;
-  margin-left: 200px
+  margin: auto;
+  margin-bottom: 50px
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Oswald', sans-serif;
+}
+a:link {
+  color: white
+}
+a:visited{
+  color: white
+
+}
+a:hover {
+  color:grey
 }

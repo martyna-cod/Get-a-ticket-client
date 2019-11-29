@@ -13,12 +13,9 @@ export function allTickets (payload) {
   }
   
   export const getTickets = eventId => (dispatch, getState) => { 
-    const state = getState()
-    const jwt = state.user
-    
+
       request
       .get(`${baseUrl}/event/${eventId}/ticket`)
-      .set('Authorization', `Bearer ${jwt}`)
        .then(res => {
          const action = allTickets(res.body)
          console.log(action, "actiongetTicket")

@@ -1,4 +1,5 @@
 import React from "react";
+//import { Link } from 'react'
 
 export default function CreateForm(props) {
   return (
@@ -17,8 +18,8 @@ export default function CreateForm(props) {
                 value={props.values.author}
                 onChange={props.onChange}
             ></input>
-              
-            <button type="submit">Add Comment</button>
+         <button type="submit">Add Comment</button>
+        
         </form>
     );
 }

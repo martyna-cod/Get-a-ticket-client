@@ -10,10 +10,11 @@ export default function List(props) {
             <div>
               <div>
                   <h1>Find your ticket!</h1>  <br/>
+                   Please, sign up, if you want to add an event <br/><br/>
         <LoginFormContainer /> <br/>
         <SignUpFormContainer /> <br/>
         {props.user && <CreateFormContainer /> } 
-
+            <h2>EVENTS</h2>
         </div>
             {props.events.map(event => (
                 <div className="event">

@@ -1,20 +1,28 @@
 import React from "react";
-import { Link } from "react-dom";
-//import CreateTicketContainer from "./CreateTicketContainer";
+import {
+  BrowserRouter as Router,
+  Link,
+} from "react-router-dom";
 
 export default function TicketsList(props) {
+  
   return (
     <div>
-    
-      {props.tickets.map(ticket => (
-        <div key={ticket.id}>
+      
+         <Link to="/"> GO BACK TO EVENTS </Link>
+          <h1>Tickets</h1>
+          
+
+     {props.tickets.map(ticket => (
+       <div className="event"> 
+          <div key={ticket.id}>
            <h2> {ticket.price}</h2> 
            <p> {ticket.description} </p>
-           <h4>see detailes</h4>
-     {/*  <Link to={`ticket/${ticket.id}`}> See detailes</Link>   */}
-     
-       
-        </div>
+           <Link to={`/ticket/${ticket.id}`}> See detailes </Link> <br></br>
+           <Link to={`/ticket/${ticket.id}/createcomment`}> Add a comment </Link>  
+         
+           </div>
+    </div>
       ))}
     </div>
    

@@ -6,14 +6,14 @@ import { getComments } from '../commentAction'
  class CommentsContainer extends React.Component { 
     componentDidMount() {
         const id = this.props.match.params.ticketId
-        console.log(id, "id")
-        console.log(this.props.match.params.ticketId, "ticketlistcontainer")
+        console.log(id, "ticketId, comments")
+        console.log(this.props.match.params.ticketId, "commentscontainer")
         this.props.getComments(this.props.match.params.ticketId)
       }
 
     
     render() {
-        return <Comments tickets={this.props.comments} 
+        return <Comments comments={this.props.comments} 
         />;
     }
 }
