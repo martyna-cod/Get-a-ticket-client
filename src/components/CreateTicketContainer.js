@@ -8,13 +8,14 @@ class CreateTicketContainer extends Component {
 
 
   onChange = event => {
-      console.log("onchange netticket")
+      console.log("onchange newticket")
     this.setState({ [event.target.name]: event.target.value });
   };
 
   onSubmit = event => {
-    console.log(this.props.match.params.eventId, "props.matcg")
-    console.log("onSubmit newticket")
+    console.log(this.props.match.params.eventId, "CREATTICKETOCNTAINER")
+    console.log("onSubmit CREATETICKET")
+    console.log(this.state, "STATE CREATECOINTAER")
     event.preventDefault();
     this.props.createTicket(
       this.state,
@@ -39,5 +40,10 @@ class CreateTicketContainer extends Component {
     );
   }
 }
+const mapStateToProps = state => ({
+  ticket: state.tickets
+});
 
-export default connect(null, { createTicket })(CreateTicketContainer);
+
+
+export default connect(mapStateToProps, { createTicket })(CreateTicketContainer);

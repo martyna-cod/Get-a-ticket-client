@@ -17,7 +17,8 @@ class TicketDetailsContainer extends React.Component {
     }
     function mapStateToProps(state) {
         console.log(state, "state TICKETDETAILESCONTAINER")
-        return { ticket: state.tickets};
+        return { ticket: state.tickets,
+        event: state.events};
     }
     
     const mapDispatchToProps = { getTicket };

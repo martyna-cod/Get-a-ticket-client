@@ -3,15 +3,15 @@ import React from "react";
 export default function LoginForm(props) {
   return (
     <form onSubmit={props.onSubmit}>
-      <label>user name:</label>
+      <label>user name:     </label> 
       <input
         type="text"
         name="username"
-        placeholder="usenname"
+        placeholder="username"
         value={props.values.username}
         onChange={props.onChange}
       />
-      <label>password:</label>
+      <label>password:     </label>
       <input
         type="text"
         name="password"

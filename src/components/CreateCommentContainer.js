@@ -4,11 +4,13 @@ import { createComment } from '../commentAction'
 import CreateComment  from '../components/CreateComment'
 
 class CreateCommentContainer extends Component {
+
   state = { text: "", author: "" };
 
 
   onChange = event => {
-      console.log("onchange netticket")
+      console.log("onchange new comment")
+  
     this.setState({ [event.target.name]: event.target.value });
   };
 
@@ -16,9 +18,7 @@ class CreateCommentContainer extends Component {
     event.preventDefault();
     this.props.createComment(
       this.state,
-      this.props.match.params.ticketId
-     
-    );
+      this.props.match.params.ticketId );
     this.setState({
       text: "",
       author: ""
@@ -37,5 +37,8 @@ class CreateCommentContainer extends Component {
     );
   }
 }
+function mapStateToProps(state) {
+  return { tickets: state.tickets, comments: state.comments};
+}
 
-export default connect(null, { createComment })(CreateCommentContainer);
+export default connect(mapStateToProps, { createComment })(CreateCommentContainer);

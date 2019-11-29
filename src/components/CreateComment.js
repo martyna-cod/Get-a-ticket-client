@@ -4,7 +4,7 @@ export default function CreateForm(props) {
   return (
         <form onSubmit={props.onSubmit}>
               <input
-                type="string"
+                type="text"
                 name="text"
                 placeholder="text"
                 value={props.values.text}

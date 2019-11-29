@@ -12,10 +12,13 @@ export function allTickets (payload) {
     }
   }
   
-  export const getTickets = eventId => (dispatch) => { 
+  export const getTickets = eventId => (dispatch, getState) => { 
+    const state = getState()
+    const jwt = state.user
     
       request
       .get(`${baseUrl}/event/${eventId}/ticket`)
+      .set('Authorization', `Bearer ${jwt}`)
        .then(res => {
          const action = allTickets(res.body)
          console.log(action, "actiongetTicket")
@@ -34,7 +37,7 @@ export function ticket (payload) {
   export const getTicket = ticketId => (dispatch) => { 
     
     request
-    .get(`${baseUrl}/ticket/${ticketId}`)
+    .get(`${baseUrl}/ticket/${ticketId}`) 
      .then(res => {
        const action = ticket(res.body)
        console.log(action, "actiongetTicket")
@@ -53,17 +56,17 @@ export function newTicket (payload) {
 
 export const createTicket = (ticketdata, eventId) => ( dispatch, getState) =>{
   const state = getState();
-  const { user } = state
+  const { jwt } = state.user
 
   request
-    .post(`${baseUrl}/event/${eventId}/ticket`)
-    .set("Authorization", `Bearer ${user}`)
+    .post(`${baseUrl}/event/${eventId}/createticket`)
+  //.set("Authorization", `Bearer ${jwt}`)
     .send(ticketdata)
     .then(res => {
       const action = newTicket(res.body)
 
       dispatch(action)
-      console.log(action,"WAAAAAAAAT")
+      console.log(action,"ACTON newticket")
     })
     .catch(console.error)
 };

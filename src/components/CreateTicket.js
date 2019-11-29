@@ -13,7 +13,7 @@ export default function CreateForm(props) {
             ></input>
             <label>Price:</label>
             <input
-                type="integer"
+                type="string"
                 name="price"
                 placeholder="price"
                 value={props.values.price}
@@ -21,4 +21,7 @@ export default function CreateForm(props) {
             ></input>
               <button type="Submit">Add ticket</button>
             </form>
+         
+          
+          
   )}

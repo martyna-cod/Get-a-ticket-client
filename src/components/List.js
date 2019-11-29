@@ -9,17 +9,25 @@ export default function List(props) {
     return (
             <div>
               <div>
-        <LoginFormContainer />
-        <SignUpFormContainer />
-        {props.user && <CreateFormContainer /> }
+                  <h1>Find your ticket!</h1>  <br/>
+        <LoginFormContainer /> <br/>
+        <SignUpFormContainer /> <br/>
+        {props.user && <CreateFormContainer /> } 
+
         </div>
             {props.events.map(event => (
-                <div key={event.id}>
-                    <Link to={`/event/${event.id}/ticket`}>{event.name}</Link>
-                    <img alt={event.name} src={event.picture} />
-                    <h4>{event.description}; {event.date} </h4>
+                <div className="event">
+                     <div key={event.id}>
+                    <Link to={`/event/${event.id}/ticket`}>{event.name}</Link> <br/> <br/>
+                    <img alt={event.name} src={event.picture} /> <br/> <br/>
+                    <h5>{event.description} <br/> <br/>
+                    Start date: {event.startDate} <br/> 
+                    End date: {event.endDate} </h5> <br/>
+                    <Link to={`/event/${event.id}/createticket`}>Create a ticket</Link> 
+                   </div>
                 </div>
             ))} 
         </div>
+        
     );
 }
