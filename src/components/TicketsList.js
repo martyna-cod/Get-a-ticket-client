@@ -10,9 +10,17 @@ export default function TicketsList(props) {
     <div>
       
          <Link to="/"> GO BACK TO EVENTS </Link>
-          <h1>Tickets</h1>
-          
 
+     
+
+
+          <h1>Tickets</h1>
+       <div>
+     {props.tickets.length === 0 && 
+    <h2>
+      There are no tickets for that event.
+    </h2>}
+    </div>   
      {props.tickets.map(ticket => (
        <div className="event"> 
           <div key={ticket.id}>

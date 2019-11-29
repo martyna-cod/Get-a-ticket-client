@@ -9,6 +9,7 @@ export default function List(props) {
     return (
             <div>
               <div>
+                  
                   <h1>Find your ticket!</h1>  <br/>
                    Please, sign up, if you want to add an event <br/><br/>
         <LoginFormContainer /> <br/>

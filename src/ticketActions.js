@@ -52,12 +52,12 @@ export function newTicket (payload) {
 }
 
 export const createTicket = (ticketdata, eventId) => ( dispatch, getState) =>{
-  const state = getState();
-  const { jwt } = state.user
+  //const state = getState();
+  //const { jwt } = state.user
 
   request
     .post(`${baseUrl}/event/${eventId}/createticket`)
-  //.set("Authorization", `Bearer ${jwt}`)
+    //.set("Authorization", `Bearer ${jwt}`)
     .send(ticketdata)
     .then(res => {
       const action = newTicket(res.body)

@@ -13,13 +13,15 @@ import { getTickets } from '../ticketActions'
 
     
     render() {
-        return <TicketsList tickets={this.props.tickets} 
-        />;
+        return(
+            <TicketsList tickets={this.props.tickets}
+                      events={this.props.events} />);
+         
     }
 }
 function mapStateToProps(state) {
     console.log(state, "state")
-    return { tickets: state.tickets, events: state.events};
+    return { tickets: state.tickets, events: state.events };
 }
 
 const mapDispatchToProps = { getTickets };
