@@ -1,5 +1,5 @@
 import request from "superagent";
-const baseUrl = "http://localhost:4000";
+const baseUrl = "http://localhost:4010";
 export const NEW_COMMENT = "NEW_COMMENT"
 export const ALL_COMMENTS ="ALL_COMMENTS"
 
@@ -13,15 +13,15 @@ export function newComment (payload) {
   
   export const createComment = (commentData, ticketId) => ( dispatch, getState) =>{
     const state = getState();
-    const { jwt } = state.user
-  
+    const { user } = state
+  console.log(ticketId)
     request
       .post(`${baseUrl}/ticket/${ticketId}/comment`)
-      //.set("Authorization", `Bearer ${jwt}`)
+      .set("Authorization", `Bearer ${user}`)
       .send(commentData)
       .then(res => {
         const action = newComment(res.body)
-  
+        console.log(commentData)
         dispatch(action)
         console.log(action,"comment action fired")
       })
@@ -38,9 +38,10 @@ export function newComment (payload) {
   export const getComments = commentId => (dispatch) => { 
     
       request
-      .get(`${baseUrl}/comment/${commentId}`)
+      .get(`${baseUrl}/comment`)
        .then(res => {
          const action = allComments(res.body)
+    
          console.log(action, "action ALLCOMMENTS")
          dispatch(action)
        })

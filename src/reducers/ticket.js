@@ -1,4 +1,4 @@
-import { ALL_TICKETS, NEW_TICKET, TICKET } from '../ticketActions';
+import { ALL_TICKETS, NEW_TICKET, TICKET, EDITED_TICKET } from '../actions/tickets';
 
 export default function(state = [], action = {}) {
     switch (action.type) {
@@ -10,6 +10,8 @@ export default function(state = [], action = {}) {
             return [action.payload, ...state]
             case TICKET:
                 return action.payload
+            case EDITED_TICKET:
+                    return action.payload
         default:
             return state;
     }

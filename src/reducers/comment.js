@@ -1,4 +1,4 @@
-import { NEW_COMMENT, ALL_COMMENTS } from '../commentAction';
+import { NEW_COMMENT, ALL_COMMENTS } from '../actions/comments';
 
 export default function(state = [], action = {}) {
     switch (action.type) {
@@ -6,7 +6,7 @@ export default function(state = [], action = {}) {
             console.log(action.payload, "payload")
             return [action.payload, ...state];
             case ALL_COMMENTS:
-                return [action.payload]
+                return action.payload
              default:
             return state;
     }

@@ -1,5 +1,5 @@
 import request from "superagent";
-const baseUrl = "http://localhost:4000";
+const baseUrl = "http://localhost:4010";
 export const ALL_EVENTS = "ALL_EVENTS"
 export const NEW_EVENT = "NEW_EVENT"
 
@@ -13,11 +13,10 @@ function newEvent (payload) {
 
 export const createEvent = data => (dispatch, getState) => {
   const state = getState()
-  const { jwt } = state.user
-
+  const  { user }  = state
   request
     .post(`${baseUrl}/event`)
-    .set('Authorization', `Bearer ${jwt}`)
+    .set('Authorization', `Bearer ${user}`)
     .send(data)
     .then(response => {
       const action = newEvent(response.body)

@@ -1,6 +1,5 @@
 import request from "superagent";
-const baseUrl = "http://localhost:4000";
-
+const baseUrl = "http://localhost:4010";
 export const JWT = "JWT";
 
 function jwt(payload) {
@@ -17,6 +16,7 @@ export const login = (username, password) => dispatch => {
     .send({ username, password })
     .then(res => {
       const action = jwt(res.body.jwt);
+      console.log(res.body.jwt)
       dispatch(action);
     })
 };
@@ -31,3 +31,4 @@ export const login = (username, password) => dispatch => {
     })
     .catch(console.error);
 };
+

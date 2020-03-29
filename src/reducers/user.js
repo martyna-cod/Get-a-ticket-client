@@ -1,4 +1,4 @@
-import {  JWT } from '../actions.js';
+import {  JWT } from '../actions/users';
 
 export default function(state = "", action = {}) {
     switch (action.type) {

@@ -1,13 +1,29 @@
 import React from "react";
-//import { Link } from "react"
-import {
-  BrowserRouter as Router,
-  Link,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Form, Button } from 'react-bootstrap'
 
 export default function CreateForm(props) {
   return (
-    <div>
+<Form className="create-ticket-form" onSubmit={props.onSubmit}>
+  <Form.Group controlId="formGroupEmail">
+    <Form.Label>Description</Form.Label>
+    <Form.Control type="text" name="description" placeholder="Description" value={props.values.description} 	onChange={props.onChange}/>
+    <div class="clearfix"></div>
+  </Form.Group>
+  <Form.Group controlId="formGroupPassword">
+    <Form.Label>Price</Form.Label>
+    <Form.Control type="string" name="price" placeholder="Price"  value={props.values.price}  	onChange={props.onChange}/>
+  </Form.Group>
+
+  <Button variant="primary" type="submit">
+    Add a ticket
+  </Button>
+</Form>
+  )}
+
+
+
+   /*  <div>
       <div>
         <form onSubmit={props.onSubmit}>
             <label>Description:</label>
@@ -36,4 +52,4 @@ export default function CreateForm(props) {
           </div>
           
           
-  )}
+  )} */

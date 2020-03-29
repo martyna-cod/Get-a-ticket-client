@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CreateTicket from "./CreateTicket";
 import { connect } from "react-redux";
-import { createTicket } from '../ticketActions'
+import { createTicket } from '../../actions/tickets'
 
 class CreateTicketContainer extends Component {
   state = { description: "", price: "" };
@@ -41,7 +41,7 @@ class CreateTicketContainer extends Component {
   }
 }
 const mapStateToProps = state => ({
-  ticket: state.tickets
+  ticket: state.tickets,
 });
 
 

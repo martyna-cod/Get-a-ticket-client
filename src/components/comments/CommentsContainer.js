@@ -1,14 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Comments from './Comments'
-import { getComments } from '../commentAction'
+import { getComments } from '../../actions/comments'
 
  class CommentsContainer extends React.Component { 
     componentDidMount() {
-        const id = this.props.match.params.ticketId
-        console.log(id, "ticketId, comments")
-        console.log(this.props.match.params.ticketId, "commentscontainer")
-        this.props.getComments(this.props.match.params.ticketId)
+        console.log(this.props.ticketId, "GET COOMENTS")
+        this.props.getComments(this.props.ticketId)
       }
 
     

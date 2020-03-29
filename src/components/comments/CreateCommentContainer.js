@@ -1,27 +1,28 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createComment } from '../commentAction'
-import CreateComment  from '../components/CreateComment'
+import { createComment } from '../../actions/comments'
+import CreateComment  from './CreateComment'
 
 class CreateCommentContainer extends Component {
 
-  state = { text: "", author: "" };
+  state = { text: "" };
 
 
   onChange = event => {
       console.log("onchange new comment")
-  
+
     this.setState({ [event.target.name]: event.target.value });
   };
 
   onSubmit = event => {
     event.preventDefault();
+    const ticketId = this.props.ticket.id; //ticket is an object inside an array
+    console.log(ticketId)
     this.props.createComment(
       this.state,
-      this.props.match.params.ticketId );
+      ticketId);
     this.setState({
       text: "",
-      author: ""
     })
   };
 

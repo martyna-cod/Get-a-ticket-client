@@ -1,12 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import TicketsList from './TicketsList'
-import { getTickets } from '../ticketActions'
+import { getTickets } from '../../actions/tickets'
 
  class TicketsListContainer extends React.Component { 
     componentDidMount() {
-        const id = this.props.match.params.eventId
-        console.log(id, "id")
         console.log(this.props.match.params.eventId, "ticketlistcontainer")
         this.props.getTickets(this.props.match.params.eventId)
       }
@@ -21,7 +19,7 @@ import { getTickets } from '../ticketActions'
 }
 function mapStateToProps(state) {
     console.log(state, "state")
-    return { tickets: state.tickets, events: state.events };
+    return { tickets: state.tickets, events: state.events};
 }
 
 const mapDispatchToProps = { getTickets };

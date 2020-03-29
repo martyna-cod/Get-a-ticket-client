@@ -1,4 +1,4 @@
-import { ALL_EVENTS, NEW_EVENT } from '../actions';
+import { ALL_EVENTS, NEW_EVENT } from '../actions/events';
 
 export default function(state = [], action = {}) {
     switch (action.type) {
